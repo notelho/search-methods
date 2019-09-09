@@ -1,4 +1,5 @@
 from copy import copy, deepcopy
+
 final = [[1, 2, 3], [8, 'x', 4], [7, 6, 5]]
 
 lf = []
@@ -39,14 +40,14 @@ def next():
 
         print('next: ' + str(la[0]))
 
-        push()
+        move()
 
     else:
 
         print('not found')
 
 
-def push():
+def move():
 
     global la, lf
 
@@ -56,13 +57,13 @@ def push():
 
             if la[0][i][j] == 'x':
 
-                tryPushNew((j - 1 > -1), i, j, i, j - 1)
+                insert((j - 1 > -1), i, j, i, j - 1)
 
-                tryPushNew((i + 1 < len(la[0])), i, j, i + 1, j)
+                insert((i + 1 < len(la[0])), i, j, i + 1, j)
 
-                tryPushNew((j + 1 < len(la[0][i])), i, j, i, j + 1)
+                insert((j + 1 < len(la[0][i])), i, j, i, j + 1)
 
-                tryPushNew((i - 1 > -1), i, j, i - 1, j)
+                insert((i - 1 > -1), i, j, i - 1, j)
 
                 lf.append(deepcopy(la[0]))
 
@@ -71,7 +72,7 @@ def push():
                 break
 
 
-def tryPushNew(condition, fromi, fromj, toi, toj):
+def insert(condition, fromi, fromj, toi, toj):
 
     global la, lf
 
