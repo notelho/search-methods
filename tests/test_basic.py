@@ -16,7 +16,7 @@
 
 #     from contextlib import contextmanager
 
-# @contextmanager
+# @contextmanager\
 # def custom_open(filename):
 #     f = open(filename)
 #     try:
