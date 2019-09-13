@@ -1,40 +1,22 @@
+from src.classes.depth_first import DepthFirst
+import argparse
 import sys
 
 sys.setrecursionlimit(100000)
 
-from src.classes.depth_first import DepthFirst
+search = DepthFirst([[2, 'x', 3], [1, 8, 4], [7, 6, 5]],
+               [[1, 2, 3], [8, 'x', 4], [7, 6, 5]])
 
-a =  DepthFirst([[2, 'x', 3], [1 , 8  , 4], [7, 6, 5]], [[1, 2, 3], [8, 'x', 4], [7, 6, 5]])
+parser = argparse.ArgumentParser()
 
-# import argparse
+# --verbose | ativa logs
+# -t, --test | roda teste facil/medio/dificil
+# -o, --output | gera um arquivo com os logs
+# -m, --method | escolhe o tipo de busca que vai realizar
+# -i, --input | ativa input de uma matriz
 
-# parser = argparse.ArgumentParser(description='Search some files')
 
-# parser.add_argument(dest='filenames', metavar='filename', nargs='*')
-
-# parser.add_argument('-p', '--pat', metavar='pattern',
-#                     required=True, dest='patterns',
-#                     action='append',
-#                     help='text pattern to search for')
-
-# parser.add_argument('-v', dest='verbose',
-#                     action='store_true', help='verbose mode')
-
-# parser.add_argument('-o', dest='outfile', action='store', help='output file')
-
-# parser.add_argument('--speed', dest='speed',
-#                     action='store', choices={'slow', 'fast'},
-#                     default='slow', help='search speed')
-
-# args = parser.parse_args()
-
-# print(parser.parse_args())
-
-# import argparse
-
-# parser = argparse.ArgumentParser()
-
-# parser.add_argument('-s', action='store', dest='simple_value',
+# parser.add_argument('-m', '--method', action='store', dest='simple_value',
 #                     help='Store a simple value')
 
 # parser.add_argument('-c', action='store_const', dest='constant_value',
@@ -61,11 +43,8 @@ a =  DepthFirst([[2, 'x', 3], [1 , 8  , 4], [7, 6, 5]], [[1, 2, 3], [8, 'x', 4],
 #                     const='value-2-to-append',
 #                     help='Add different values to list')
 
-# parser.add_argument('--version', action='version', version='%(prog)s 1.0')
+parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
-# results = parser.parse_args()
-# print('simple_value     =', results.simple_value)
-# print('constant_value   =', results.constant_value)
-# print('boolean_switch   =', results.boolean_switch)
-# print('collection       =', results.collection)
-# print('const_collection =', results.const_collection)
+args = parser.parse_args()
+
+# print('simple_value     =', args.simple_value)
