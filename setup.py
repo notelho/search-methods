@@ -4,8 +4,8 @@ import sys
 
 sys.setrecursionlimit(100000)
 
-search = DepthFirst([[2, 'x', 3], [1, 8, 4], [7, 6, 5]],
-               [[1, 2, 3], [8, 'x', 4], [7, 6, 5]])
+# search = DepthFirst([[2, 'x', 3], [1, 8, 4], [7, 6, 5]],
+#                     [[1, 2, 3], [8, 'x', 4], [7, 6, 5]])
 
 parser = argparse.ArgumentParser()
 
@@ -16,16 +16,13 @@ parser = argparse.ArgumentParser()
 # -i, --input | ativa input de uma matriz
 
 
-# parser.add_argument('-m', '--method', action='store', dest='simple_value',
-#                     help='Store a simple value')
+parser.add_argument('-m', '--method', action='store', dest='search_method', default='b',
+                    help='Select the search method')
 
-# parser.add_argument('-c', action='store_const', dest='constant_value',
-#                     const='value-to-store',
-#                     help='Store a constant value')
+parser.add_argument('--verbose', action='store_true', default=False,
+                    dest='is_verbose_active',
+                    help='Active search logs')
 
-# parser.add_argument('-t', action='store_true', default=False,
-#                     dest='boolean_switch',
-#                     help='Set a switch to true')
 # parser.add_argument('-f', action='store_false', default=False,
 #                     dest='boolean_switch',
 #                     help='Set a switch to false')
@@ -47,4 +44,5 @@ parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
 args = parser.parse_args()
 
-# print('simple_value     =', args.simple_value)
+print('search_method        =', args.search_method)
+print('is_verbose_active    =', args.is_verbose_active)
